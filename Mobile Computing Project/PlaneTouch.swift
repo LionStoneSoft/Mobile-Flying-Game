@@ -21,7 +21,14 @@ class PlaneTouch: UIImageView {
         let dx = currentLocation!.x - startLocation!.x
         let dy = currentLocation!.y - startLocation!.y
         
-        self.center = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
+        let boundaries = (self.superview?.bounds)!
+        
+        let boundaryCenter = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
+        
+        if boundaries.contains(boundaryCenter) {
+            self.center = boundaryCenter
+        }
+        
     }
 
 }
