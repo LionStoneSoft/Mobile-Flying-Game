@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plane1" translatesAutoresizingMaskIntoConstraints="NO" id="IdM-5Q-des">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plane1" translatesAutoresizingMaskIntoConstraints="NO" id="IdM-5Q-des" customClass="PlaneTouch" customModule="Mobile_Computing_Project" customModuleProvider="target">
                                 <rect key="frame" x="31" y="156" width="117" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
