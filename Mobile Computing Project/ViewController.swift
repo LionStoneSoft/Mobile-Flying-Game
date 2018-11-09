@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     func enemyAnimation() {
-        let enemy: UIImageView! = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        let enemy: UIImageView! = UIImageView(frame: CGRect(x: 500, y: 150, width: 75, height: 75))
         
         let imageArray = [UIImage(named: "bird1.png")!, UIImage(named: "bird2.png")!, UIImage(named: "bird3.png")!, UIImage(named: "bird4.png")!, UIImage(named: "bird5.png")!, UIImage(named: "bird6.png")!, UIImage(named: "bird7.png")!, UIImage(named: "bird8.png")!, UIImage(named: "bird9.png")!, UIImage(named: "bird10.png")!]
         
