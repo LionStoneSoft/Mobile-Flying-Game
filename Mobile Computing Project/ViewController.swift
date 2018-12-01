@@ -12,12 +12,13 @@ class ViewController: UIViewController {
 
     @IBOutlet var scrollingBackground: UIImageView!
     @IBOutlet var plane: UIImageView!
+    var crowSpawnTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundScroll()
         planeAnimation()
-        enemyAnimation()
+        crowSpawnTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(enemyAnimation), userInfo: nil, repeats: true)
     }
     
     func backgroundScroll() {
@@ -32,8 +33,10 @@ class ViewController: UIViewController {
         plane.image = UIImage.animatedImage(with: imageArray, duration: 0.5)
     }
     
-    func enemyAnimation() {
-        let enemy: UIImageView! = UIImageView(frame: CGRect(x: 500, y: 150, width: 75, height: 75))
+    @objc func enemyAnimation() {
+        let number = Int.random(in: -250 ..< 250)
+        
+        let enemy: UIImageView! = UIImageView(frame: CGRect(x: 500, y: number, width: 75, height: 75))
         
         let imageArray = [UIImage(named: "bird1.png")!, UIImage(named: "bird2.png")!, UIImage(named: "bird3.png")!, UIImage(named: "bird4.png")!, UIImage(named: "bird5.png")!, UIImage(named: "bird6.png")!, UIImage(named: "bird7.png")!, UIImage(named: "bird8.png")!, UIImage(named: "bird9.png")!, UIImage(named: "bird10.png")!]
         
