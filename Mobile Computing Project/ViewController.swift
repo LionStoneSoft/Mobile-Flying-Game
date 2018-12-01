@@ -36,11 +36,20 @@ class ViewController: UIViewController {
     @objc func enemyAnimation() {
         let number = Int.random(in: -250 ..< 250)
         
+        let containerView = UIView(
+            frame: CGRect(x: 0.0, y: 0.0, width: 375.0, height: 667.0)
+        )
+        
         let enemy: UIImageView! = UIImageView(frame: CGRect(x: 500, y: number, width: 75, height: 75))
         
         let imageArray = [UIImage(named: "bird1.png")!, UIImage(named: "bird2.png")!, UIImage(named: "bird3.png")!, UIImage(named: "bird4.png")!, UIImage(named: "bird5.png")!, UIImage(named: "bird6.png")!, UIImage(named: "bird7.png")!, UIImage(named: "bird8.png")!, UIImage(named: "bird9.png")!, UIImage(named: "bird10.png")!]
         
         enemy.image = UIImage.animatedImage(with: imageArray, duration: 0.5)
+        
+        UIView.animate(withDuration: 2.0, animations: { () -> Void in
+            // Move "appleImage" from current position to center
+            enemy.center = containerView.center
+        })
         
         self.view.addSubview(enemy)
     }
