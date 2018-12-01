@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         enemy.image = UIImage.animatedImage(with: imageArray, duration: 0.5)
         
         UIView.animate(withDuration: 2.0, animations: { () -> Void in
-            // Move "appleImage" from current position to center
             enemy.center = containerView.center
         })
         
