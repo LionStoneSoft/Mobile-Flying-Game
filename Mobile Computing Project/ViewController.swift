@@ -47,6 +47,11 @@ class ViewController: UIViewController {
         enemyAnimation()
         self.view.addSubview(enemy)
         collision.addItem(enemy)
+        if (plane.frame.intersects(enemy.frame)) {
+            print("tru")
+            gameScore = gameScore - 10
+            scoreChangeLabel.text = "Score: \(gameScore)"
+        }
     }
     
     func backgroundScroll() {
