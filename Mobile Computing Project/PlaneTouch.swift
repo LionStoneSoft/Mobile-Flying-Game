@@ -11,24 +11,27 @@ import UIKit
 class PlaneTouch: UIImageView {
 
     var startLocation: CGPoint?
+    var attachment: UIAttachmentBehavior?
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        startLocation = touches.first?.location(in: self)
-    }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let currentLocation = touches.first?.location(in: self)
-        let dx = currentLocation!.x - startLocation!.x
-        let dy = currentLocation!.y - startLocation!.y
-        
-        let boundaries = (self.superview?.bounds)!
-        
-        let boundaryCenter = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
-        
-        if boundaries.contains(boundaryCenter) {
-            self.center = boundaryCenter
-        }
-        
-    }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        startLocation = touches.first?.location(in: self)
+//    }
+//
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let currentLocation = touches.first?.location(in: self)
+//        let dx = currentLocation!.x - startLocation!.x
+//        let dy = currentLocation!.y - startLocation!.y
+//
+//        let boundaries = (self.superview?.bounds)!
+//
+//        let boundaryCenter = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
+//
+//        if boundaries.contains(boundaryCenter) {
+//            self.center = boundaryCenter
+//        }
+//
+//    }
 
 }
