@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         @objc func enemyAnimation() {
         let containerHeight = Int(view.bounds.height)
         let containerWidth = Int(view.bounds.width)
-        let number = Int.random(in: 0 ..< containerHeight)
+        let number = Int.random(in: 75 ..< containerHeight - 75)
             
              //667, 375
         let containerView = UIView(
