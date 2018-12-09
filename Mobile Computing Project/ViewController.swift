@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var collision: UICollisionBehavior!
     var currentLocation: CGPoint?
     var attachment: UIAttachmentBehavior?
+    var push: UIPushBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,6 @@ class ViewController: UIViewController {
         backgroundScroll()
         planeAnimation()
         collision.addItem(plane)
-        //crowSpawnTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(enemySpawn), userInfo: nil, repeats: true)
         timer()
         
     }
@@ -40,13 +40,22 @@ class ViewController: UIViewController {
     
     @objc func enemySpawn() {
         let containerHeight = Int(view.bounds.height)
-        //let containerWidth = Int(view.bounds.width)
+        let containerWidth = Int(view.bounds.width)
         let number = Int.random(in: 75 ..< containerHeight - 75)
         
-        enemy = UIImageView(frame: CGRect(x: 270, y: number, width: 75, height: 75))
+        enemy = UIImageView(frame: CGRect(x: containerWidth, y: number, width: 75, height: 75))
         enemyAnimation()
         self.view.addSubview(enemy)
         collision.addItem(enemy)
+        let push = UIPushBehavior(items: [enemy], mode: .instantaneous)
+        push.angle = 3.15
+        push.magnitude = 1.56
+        animator?.addBehavior(push)
+        enemyCollision()
+        
+    }
+    
+    func enemyCollision() {
         if (plane.frame.intersects(enemy.frame)) {
             print("tru")
             gameScore = gameScore - 10
