@@ -20,7 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let coinSound = SKAction.playSoundFileNamed("coinNoise", waitForCompletion: false)
     let crowSound = SKAction.playSoundFileNamed("crowSound", waitForCompletion: false)
     let gameplayMusic = SKAudioNode(fileNamed: "gameplayMusic.wav")
+    var gameScene:SKScene!
     var scoreLabel = SKLabelNode()
+    var timerLabel = SKLabelNode()
     var currentScore = 0
     
     override func didMove(to view: SKView) { //similar to viewDidLoad
@@ -29,6 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupBackground()
         setupScore()
         setupPlayer()
+        timer()
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(setupEnemy),
@@ -47,6 +50,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func timer() {
+        let actionwait = SKAction.wait(forDuration: 1)
+        var timesecond = 20
+        timerLabel.position = CGPoint(x: size.width / 4, y: size.height - 50)
+        timerLabel.fontColor = UIColor.black
+        addChild(timerLabel)
+        let actionrun = SKAction.run({
+            timesecond = timesecond - 1
+            if timesecond == 0 {
+                self.gameScene = SKScene(fileNamed: "GameOverScene")
+                self.gameplayMusic.run(SKAction.stop())
+                self.gameScene.scaleMode = .aspectFit
+                self.view?.presentScene(self.gameScene)}
+            self.timerLabel.text = "Time Left: \(timesecond)"
+        })
+        
+        timerLabel.run(SKAction.repeatForever(SKAction.sequence([actionwait,actionrun])))
     }
     
     func setupScore() {
