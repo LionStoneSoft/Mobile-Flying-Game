@@ -16,10 +16,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background = SKSpriteNode(imageNamed: "road1")
     let playerCategory: UInt32 = 0x00000001 << 0
     let enemyCategory: UInt32 = 0x00000001 << 1
+    var scoreLabel = SKLabelNode()
+    var currentScore = 0
     
     override func didMove(to view: SKView) { //similar to viewDidLoad
         physicsWorld.contactDelegate = self
         setupBackground()
+        setupScore()
         setupPlayer()
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -32,6 +35,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func setupScore() {
+        scoreLabel.text = "Score: \(currentScore)"
+        scoreLabel.position = CGPoint(x: size.width / 2, y: size.height - 50)
+        scoreLabel.fontColor = UIColor.black
+        addChild(scoreLabel)
     }
     
     func setupPlayer() {
@@ -135,7 +145,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerBirdCollision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if playerBirdCollision == playerCategory | enemyCategory {
-            print("Collision!")
+            currentScore = currentScore - 100
+            scoreLabel.text = "Score: \(currentScore)"
         }
     }
     
