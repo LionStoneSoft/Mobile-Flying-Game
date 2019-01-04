@@ -13,13 +13,14 @@ class StartScene: SKScene {
     var gameScene:SKScene!
     let backgroundSound = SKAudioNode(fileNamed: "menuMusic.wav")
     let spark = SKSpriteNode(imageNamed: "tmp-0")
+    let touchScreen = SKSpriteNode()
     
     override func didMove(to view: SKView) {
         self.addChild(backgroundSound)
         sparkBackground()
         setupTitle()
         setupText()
-        
+        setupTouchScreen()
     }
     
     func setupText() {
@@ -102,13 +103,19 @@ class StartScene: SKScene {
         spark.run(SKAction.repeatForever(animation))
         addChild(spark)
     }
+    
+    func setupTouchScreen() {
+        touchScreen.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        touchScreen.size = CGSize(width: size.width, height: size.height)
+        addChild(touchScreen)
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             
-            if node == spark {
+            if node == touchScreen {
                 if view != nil {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     gameScene = SKScene(fileNamed: "GameScene")
