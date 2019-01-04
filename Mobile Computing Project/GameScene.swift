@@ -10,12 +10,15 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let player = SKSpriteNode(imageNamed: "plane1")
     let background = SKSpriteNode(imageNamed: "road1")
+    let playerCategory: UInt32 = 0x00000001 << 0
+    let enemyCategory: UInt32 = 0x00000001 << 1
     
     override func didMove(to view: SKView) { //similar to viewDidLoad
+        physicsWorld.contactDelegate = self
         setupBackground()
         setupPlayer()
         run(SKAction.repeatForever(
@@ -52,6 +55,11 @@ class GameScene: SKScene {
         let animation = SKAction.animate(with: frames, timePerFrame: 0.05)
         player.run(SKAction.repeatForever(animation))
         addChild(player)
+        //physics body of player
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.collisionBitMask = 0x00000001
+        player.physicsBody?.contactTestBitMask = playerCategory
     }
     
     func setupBackground() {
@@ -114,6 +122,19 @@ class GameScene: SKScene {
                                        duration: TimeInterval(actualDuration))
         let actionMoveDone = SKAction.removeFromParent()
         enemy.run(SKAction.sequence([actionMove, actionMoveDone]))
+        //physics body of enemy
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
+        enemy.physicsBody?.isDynamic = true
+        enemy.physicsBody?.collisionBitMask = 0x00000001 << 1
+        enemy.physicsBody?.contactTestBitMask = enemyCategory
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let playerBirdCollision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if playerBirdCollision == playerCategory | enemyCategory {
+            print("Collision!")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
