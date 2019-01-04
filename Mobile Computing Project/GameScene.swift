@@ -57,9 +57,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(player)
         //physics body of player
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-        player.physicsBody?.isDynamic = true
-        player.physicsBody?.collisionBitMask = 0x00000001
-        player.physicsBody?.contactTestBitMask = playerCategory
+        player.physicsBody?.isDynamic = false
+        player.physicsBody?.categoryBitMask = playerCategory
+        player.physicsBody?.collisionBitMask = enemyCategory
+        player.physicsBody?.contactTestBitMask = enemyCategory
     }
     
     func setupBackground() {
@@ -125,8 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //physics body of enemy
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.physicsBody?.isDynamic = true
-        enemy.physicsBody?.collisionBitMask = 0x00000001 << 1
-        enemy.physicsBody?.contactTestBitMask = enemyCategory
+        enemy.physicsBody?.categoryBitMask = enemyCategory
+        enemy.physicsBody?.collisionBitMask = playerCategory
+        enemy.physicsBody?.contactTestBitMask = playerCategory
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
