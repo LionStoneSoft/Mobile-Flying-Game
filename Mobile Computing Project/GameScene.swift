@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ryan Soanes. All rights reserved.
 //
 
+import UIKit
 import SpriteKit
 import GameplayKit
 
@@ -114,5 +115,19 @@ class GameScene: SKScene {
         let actionMoveDone = SKAction.removeFromParent()
         enemy.run(SKAction.sequence([actionMove, actionMoveDone]))
     }
-}
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Called when touch begins
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            
+            player.position.x = location.x
+            player.position.y = location.y
+            
+        }
+    }
 
+}
