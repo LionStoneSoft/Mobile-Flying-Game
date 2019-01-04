@@ -55,8 +55,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func timer() {
         let actionwait = SKAction.wait(forDuration: 1)
         var timesecond = 20
-        timerLabel.position = CGPoint(x: size.width / 4, y: size.height - 50)
+        timerLabel.position = CGPoint(x: size.width / 4, y: size.height - 65)
         timerLabel.fontColor = UIColor.black
+        self.timerLabel.text = "Time Left: \(timesecond)"
         addChild(timerLabel)
         let actionrun = SKAction.run({
             timesecond = timesecond - 1
@@ -73,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupScore() {
         scoreLabel.text = "Score: \(currentScore)"
-        scoreLabel.position = CGPoint(x: size.width / 2, y: size.height - 50)
+        scoreLabel.position = CGPoint(x: size.width / 2, y: size.height - 65)
         scoreLabel.fontColor = UIColor.black
         addChild(scoreLabel)
     }
