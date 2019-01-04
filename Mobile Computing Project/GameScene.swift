@@ -17,11 +17,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerCategory: UInt32 = 0x00000001 << 0
     let enemyCategory: UInt32 = 0x00000001 << 1
     let coinCategory: UInt32 = 0x00000001 << 2
+    let coinSound = SKAction.playSoundFileNamed("coinNoise", waitForCompletion: false)
+    let crowSound = SKAction.playSoundFileNamed("crowSound", waitForCompletion: false)
+    let gameplayMusic = SKAudioNode(fileNamed: "gameplayMusic.wav")
     var scoreLabel = SKLabelNode()
     var currentScore = 0
     
     override func didMove(to view: SKView) { //similar to viewDidLoad
         physicsWorld.contactDelegate = self
+        self.addChild(gameplayMusic)
         setupBackground()
         setupScore()
         setupPlayer()
@@ -176,13 +180,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if collision == playerCategory | enemyCategory {
             currentScore = currentScore - 100
             scoreLabel.text = "Score: \(currentScore)"
+            run(crowSound)
             body.node?.removeFromParent()
         }
         
         if collision == playerCategory | coinCategory {
             currentScore = currentScore + 100
             scoreLabel.text = "Score: \(currentScore)"
+            run(coinSound)
             body.node?.removeFromParent()
+            
         }
     }
     
@@ -200,3 +207,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
+
+

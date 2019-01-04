@@ -14,6 +14,16 @@
 		94BF20A421DF80B200696638 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF20A321DF80B200696638 /* GameScene.swift */; };
 		94BF20A621DF80C300696638 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF20A521DF80C300696638 /* GameViewController.swift */; };
 		94BF20A821DF876C00696638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20A721DF876C00696638 /* Main.storyboard */; };
+		94BF20B021DFB9F200696638 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20AF21DFB9F200696638 /* StartScene.sks */; };
+		94BF20B221DFB9FC00696638 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF20B121DFB9FC00696638 /* StartScene.swift */; };
+		94BF20B421DFBA0C00696638 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20B321DFBA0C00696638 /* GameOverScene.sks */; };
+		94BF20B621DFBA1700696638 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF20B521DFBA1700696638 /* GameOverScene.swift */; };
+		94BF20C021DFC1D600696638 /* gameOverMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BA21DFC1D600696638 /* gameOverMusic.wav */; };
+		94BF20C121DFC1D600696638 /* startButtonNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BB21DFC1D600696638 /* startButtonNoise.wav */; };
+		94BF20C221DFC1D600696638 /* coinNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BC21DFC1D600696638 /* coinNoise.wav */; };
+		94BF20C321DFC1D600696638 /* crowSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BD21DFC1D600696638 /* crowSound.wav */; };
+		94BF20C421DFC1D600696638 /* gameplayMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BE21DFC1D600696638 /* gameplayMusic.wav */; };
+		94BF20C521DFC1D600696638 /* menuMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BF21DFC1D600696638 /* menuMusic.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,16 @@
 		94BF20A321DF80B200696638 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		94BF20A521DF80C300696638 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		94BF20A721DF876C00696638 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		94BF20AF21DFB9F200696638 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		94BF20B121DFB9FC00696638 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		94BF20B321DFBA0C00696638 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		94BF20B521DFBA1700696638 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		94BF20BA21DFC1D600696638 /* gameOverMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOverMusic.wav; sourceTree = "<group>"; };
+		94BF20BB21DFC1D600696638 /* startButtonNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startButtonNoise.wav; sourceTree = "<group>"; };
+		94BF20BC21DFC1D600696638 /* coinNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coinNoise.wav; sourceTree = "<group>"; };
+		94BF20BD21DFC1D600696638 /* crowSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crowSound.wav; sourceTree = "<group>"; };
+		94BF20BE21DFC1D600696638 /* gameplayMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameplayMusic.wav; sourceTree = "<group>"; };
+		94BF20BF21DFC1D600696638 /* menuMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menuMusic.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +81,31 @@
 				9462424B2195E5550011450E /* AppDelegate.swift */,
 				94BF20A121DF808A00696638 /* GameScene.sks */,
 				94BF20A321DF80B200696638 /* GameScene.swift */,
+				94BF20AF21DFB9F200696638 /* StartScene.sks */,
+				94BF20B121DFB9FC00696638 /* StartScene.swift */,
+				94BF20B321DFBA0C00696638 /* GameOverScene.sks */,
+				94BF20B521DFBA1700696638 /* GameOverScene.swift */,
 				94BF20A521DF80C300696638 /* GameViewController.swift */,
 				94BF20A721DF876C00696638 /* Main.storyboard */,
 				946242522195E5560011450E /* Assets.xcassets */,
+				94BF20B921DFC1C900696638 /* Sounds */,
 				946242542195E5560011450E /* LaunchScreen.storyboard */,
 				946242572195E5560011450E /* Info.plist */,
 			);
 			path = "Mobile Computing Project";
+			sourceTree = "<group>";
+		};
+		94BF20B921DFC1C900696638 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				94BF20BC21DFC1D600696638 /* coinNoise.wav */,
+				94BF20BD21DFC1D600696638 /* crowSound.wav */,
+				94BF20BA21DFC1D600696638 /* gameOverMusic.wav */,
+				94BF20BE21DFC1D600696638 /* gameplayMusic.wav */,
+				94BF20BF21DFC1D600696638 /* menuMusic.wav */,
+				94BF20BB21DFC1D600696638 /* startButtonNoise.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +169,15 @@
 				94BF20A221DF808A00696638 /* GameScene.sks in Resources */,
 				94BF20A821DF876C00696638 /* Main.storyboard in Resources */,
 				946242562195E5560011450E /* LaunchScreen.storyboard in Resources */,
+				94BF20B021DFB9F200696638 /* StartScene.sks in Resources */,
+				94BF20C021DFC1D600696638 /* gameOverMusic.wav in Resources */,
+				94BF20C121DFC1D600696638 /* startButtonNoise.wav in Resources */,
+				94BF20B421DFBA0C00696638 /* GameOverScene.sks in Resources */,
+				94BF20C221DFC1D600696638 /* coinNoise.wav in Resources */,
 				946242532195E5560011450E /* Assets.xcassets in Resources */,
+				94BF20C421DFC1D600696638 /* gameplayMusic.wav in Resources */,
+				94BF20C321DFC1D600696638 /* crowSound.wav in Resources */,
+				94BF20C521DFC1D600696638 /* menuMusic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BF20B621DFBA1700696638 /* GameOverScene.swift in Sources */,
 				94BF20A421DF80B200696638 /* GameScene.swift in Sources */,
 				94BF20A621DF80C300696638 /* GameViewController.swift in Sources */,
 				9462424C2195E5550011450E /* AppDelegate.swift in Sources */,
+				94BF20B221DFB9FC00696638 /* StartScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
