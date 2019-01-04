@@ -18,12 +18,20 @@ class GameOverScene: SKScene {
     
     override func didMove(to view: SKView) {
         self.addChild(backgroundSound)
+        setupBackground()
         setupFinalScore()
         setupGameOver()
         setupRestartMessage()
         playButton.position = CGPoint(x: frame.midX, y: frame.midY)
         playButton.size = CGSize(width: size.width, height: size.height)
         self.addChild(playButton)
+    }
+    
+    func setupBackground() {
+        let backgroundImage = SKSpriteNode(imageNamed: "PhoenixGameOver")
+        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        backgroundImage.size = CGSize(width: size.width, height: size.height)
+        addChild(backgroundImage)
     }
     
     func setupGameOver() {
@@ -35,10 +43,10 @@ class GameOverScene: SKScene {
     }
     
     func setupRestartMessage() {
-        restartMessage.text = "Tap the screen to restart"
+        restartMessage.text = "Tap screen to restart"
         restartMessage.position = CGPoint(x: size.width / 2, y: size.height / 4)
         restartMessage.color = UIColor.white
-        restartMessage.fontSize = 72
+        restartMessage.fontSize = 50
         addChild(restartMessage)
     }
     
@@ -48,7 +56,7 @@ class GameOverScene: SKScene {
         finalScoreLabel.text = "Score: \(score)"
         finalScoreLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
         finalScoreLabel.color = UIColor.white
-        finalScoreLabel.fontSize = 72
+        finalScoreLabel.fontSize = 50
         addChild(finalScoreLabel)
     }
     
