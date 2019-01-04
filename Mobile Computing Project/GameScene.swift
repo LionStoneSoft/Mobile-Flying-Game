@@ -24,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel = SKLabelNode()
     var timerLabel = SKLabelNode()
     var currentScore = 0
+    var finalScore: String?
+
     
     override func didMove(to view: SKView) { //similar to viewDidLoad
         physicsWorld.contactDelegate = self
@@ -46,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ])
         ))
         
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -65,6 +68,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.gameScene = SKScene(fileNamed: "GameOverScene")
                 self.gameplayMusic.run(SKAction.stop())
                 self.gameScene.scaleMode = .aspectFit
+                self.finalScore = String(self.currentScore)
+                UserDefaults.standard.set(self.finalScore, forKey: "score")
                 self.view?.presentScene(self.gameScene)}
             self.timerLabel.text = "Time Left: \(timesecond)"
         })
