@@ -31,6 +31,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 ])
         ))
         
+        run(SKAction.repeatForever(
+            SKAction.sequence([
+                SKAction.run(setupCoins),
+                SKAction.wait(forDuration: 1.0)
+                ])
+        ))
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -101,6 +108,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(background)
     }
     
+    func setupCoins() {
+        let coin = SKSpriteNode(imageNamed: "coin")
+        let actualY = random(min: coin.size.height/2, max: size.height - coin.size.height/2)
+        coin.position = CGPoint(x: size.width + coin.size.width/2, y: actualY)
+        coin.size = CGSize(width: 50, height: 50)
+        addChild(coin)
+        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        let actionMove = SKAction.move(to: CGPoint(x: -coin.size.width/2, y: actualY),
+                                       duration: TimeInterval(actualDuration))
+        let actionMoveDone = SKAction.removeFromParent()
+        coin.run(SKAction.sequence([actionMove, actionMoveDone]))
+    }
+    
     func random() -> CGFloat {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
@@ -163,5 +183,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
     }
-
 }
