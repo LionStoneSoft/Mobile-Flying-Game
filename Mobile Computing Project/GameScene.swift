@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background = SKSpriteNode(imageNamed: "road1")
     let playerCategory: UInt32 = 0x00000001 << 0
     let enemyCategory: UInt32 = 0x00000001 << 1
+    let coinCategory: UInt32 = 0x00000001 << 2
     var scoreLabel = SKLabelNode()
     var currentScore = 0
     
@@ -76,8 +77,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.isDynamic = false
         player.physicsBody?.categoryBitMask = playerCategory
-        player.physicsBody?.collisionBitMask = enemyCategory
-        player.physicsBody?.contactTestBitMask = enemyCategory
+        player.physicsBody?.collisionBitMask = enemyCategory | coinCategory
+        player.physicsBody?.contactTestBitMask = enemyCategory | coinCategory
     }
     
     func setupBackground() {
@@ -119,6 +120,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                        duration: TimeInterval(actualDuration))
         let actionMoveDone = SKAction.removeFromParent()
         coin.run(SKAction.sequence([actionMove, actionMoveDone]))
+        //physics for coin
+        coin.physicsBody = SKPhysicsBody(rectangleOf: coin.size)
+        coin.physicsBody?.isDynamic = true
+        coin.physicsBody?.categoryBitMask = coinCategory
+        coin.physicsBody?.collisionBitMask = playerCategory
+        coin.physicsBody?.contactTestBitMask = playerCategory
+        
     }
     
     func random() -> CGFloat {
@@ -162,11 +170,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let playerBirdCollision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let body: SKPhysicsBody = contact.bodyB
         
-        if playerBirdCollision == playerCategory | enemyCategory {
+        if collision == playerCategory | enemyCategory {
             currentScore = currentScore - 100
             scoreLabel.text = "Score: \(currentScore)"
+            body.node?.removeFromParent()
+        }
+        
+        if collision == playerCategory | coinCategory {
+            currentScore = currentScore + 100
+            scoreLabel.text = "Score: \(currentScore)"
+            body.node?.removeFromParent()
         }
     }
     
