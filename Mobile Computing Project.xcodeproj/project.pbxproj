@@ -19,11 +19,11 @@
 		94BF20B421DFBA0C00696638 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20B321DFBA0C00696638 /* GameOverScene.sks */; };
 		94BF20B621DFBA1700696638 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF20B521DFBA1700696638 /* GameOverScene.swift */; };
 		94BF20C021DFC1D600696638 /* gameOverMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BA21DFC1D600696638 /* gameOverMusic.wav */; };
-		94BF20C121DFC1D600696638 /* startButtonNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BB21DFC1D600696638 /* startButtonNoise.wav */; };
 		94BF20C221DFC1D600696638 /* coinNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BC21DFC1D600696638 /* coinNoise.wav */; };
 		94BF20C321DFC1D600696638 /* crowSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BD21DFC1D600696638 /* crowSound.wav */; };
 		94BF20C421DFC1D600696638 /* gameplayMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BE21DFC1D600696638 /* gameplayMusic.wav */; };
 		94BF20C521DFC1D600696638 /* menuMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20BF21DFC1D600696638 /* menuMusic.wav */; };
+		94BF20C721E0DFDD00696638 /* startButtonNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 94BF20C621E0DFDD00696638 /* startButtonNoise.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +41,11 @@
 		94BF20B321DFBA0C00696638 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		94BF20B521DFBA1700696638 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		94BF20BA21DFC1D600696638 /* gameOverMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOverMusic.wav; sourceTree = "<group>"; };
-		94BF20BB21DFC1D600696638 /* startButtonNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startButtonNoise.wav; sourceTree = "<group>"; };
 		94BF20BC21DFC1D600696638 /* coinNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coinNoise.wav; sourceTree = "<group>"; };
 		94BF20BD21DFC1D600696638 /* crowSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crowSound.wav; sourceTree = "<group>"; };
 		94BF20BE21DFC1D600696638 /* gameplayMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameplayMusic.wav; sourceTree = "<group>"; };
 		94BF20BF21DFC1D600696638 /* menuMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menuMusic.wav; sourceTree = "<group>"; };
+		94BF20C621E0DFDD00696638 /* startButtonNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startButtonNoise.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +101,9 @@
 				94BF20BC21DFC1D600696638 /* coinNoise.wav */,
 				94BF20BD21DFC1D600696638 /* crowSound.wav */,
 				94BF20BA21DFC1D600696638 /* gameOverMusic.wav */,
+				94BF20C621E0DFDD00696638 /* startButtonNoise.wav */,
 				94BF20BE21DFC1D600696638 /* gameplayMusic.wav */,
 				94BF20BF21DFC1D600696638 /* menuMusic.wav */,
-				94BF20BB21DFC1D600696638 /* startButtonNoise.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -170,8 +170,8 @@
 				94BF20A821DF876C00696638 /* Main.storyboard in Resources */,
 				946242562195E5560011450E /* LaunchScreen.storyboard in Resources */,
 				94BF20B021DFB9F200696638 /* StartScene.sks in Resources */,
+				94BF20C721E0DFDD00696638 /* startButtonNoise.wav in Resources */,
 				94BF20C021DFC1D600696638 /* gameOverMusic.wav in Resources */,
-				94BF20C121DFC1D600696638 /* startButtonNoise.wav in Resources */,
 				94BF20B421DFBA0C00696638 /* GameOverScene.sks in Resources */,
 				94BF20C221DFC1D600696638 /* coinNoise.wav in Resources */,
 				946242532195E5560011450E /* Assets.xcassets in Resources */,

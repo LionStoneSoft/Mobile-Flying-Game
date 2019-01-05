@@ -12,6 +12,7 @@ class StartScene: SKScene {
     
     var gameScene:SKScene!
     let backgroundSound = SKAudioNode(fileNamed: "menuMusic.wav")
+    let pressPlaySound = SKAction.playSoundFileNamed("startButtonNoise", waitForCompletion: false)
     let spark = SKSpriteNode(imageNamed: "tmp-0")
     let touchScreen = SKSpriteNode()
     
@@ -120,6 +121,7 @@ class StartScene: SKScene {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     gameScene = SKScene(fileNamed: "GameScene")
                     backgroundSound.run(SKAction.stop())
+                    run(pressPlaySound)
                     gameScene.scaleMode = .aspectFit
                     self.view?.presentScene(gameScene, transition: transition)
                 }
