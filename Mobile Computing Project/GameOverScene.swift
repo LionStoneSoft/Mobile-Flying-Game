@@ -1,5 +1,5 @@
 //
-//  StartScene.swift
+//  GameOverScene.swift
 //  Mobile Computing Project
 //
 //  Created by Ryan Soanes on 04/01/2019.
@@ -15,6 +15,7 @@ class GameOverScene: SKScene {
     let playButton = SKSpriteNode()
     let gameOverLabel = SKLabelNode()
     let restartMessage = SKLabelNode()
+    let creditButton = SKLabelNode()
     
     override func didMove(to view: SKView) {
         self.addChild(backgroundSound)
@@ -25,6 +26,7 @@ class GameOverScene: SKScene {
         playButton.position = CGPoint(x: frame.midX, y: frame.midY)
         playButton.size = CGSize(width: size.width, height: size.height)
         self.addChild(playButton)
+        setupCredits()
     }
     
     func setupBackground() {
@@ -32,6 +34,13 @@ class GameOverScene: SKScene {
         backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundImage.size = CGSize(width: size.width, height: size.height)
         addChild(backgroundImage)
+    }
+    
+    func setupCredits() {
+        creditButton.text = "Credits"
+        creditButton.position = CGPoint(x: 90, y: 30)
+        creditButton.fontSize = 50
+        addChild(creditButton)
     }
     
     func setupGameOver() {
@@ -56,7 +65,7 @@ class GameOverScene: SKScene {
         finalScoreLabel.text = "Score: \(score)"
         finalScoreLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
         finalScoreLabel.color = UIColor.white
-        finalScoreLabel.fontSize = 50
+        finalScoreLabel.fontSize = 70
         addChild(finalScoreLabel)
     }
     
@@ -70,6 +79,14 @@ class GameOverScene: SKScene {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     gameScene = SKScene(fileNamed: "StartScene")
                     backgroundSound.run(SKAction.stop())
+                    gameScene.scaleMode = .aspectFit
+                    self.view?.presentScene(gameScene, transition: transition)
+                }
+            }
+            if node == creditButton {
+                if view != nil {
+                    let transition:SKTransition = SKTransition.flipHorizontal(withDuration: 1)
+                    gameScene = SKScene(fileNamed: "CreditScene")
                     gameScene.scaleMode = .aspectFit
                     self.view?.presentScene(gameScene, transition: transition)
                 }
