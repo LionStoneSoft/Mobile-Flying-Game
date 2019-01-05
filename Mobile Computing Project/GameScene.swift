@@ -68,8 +68,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionwait = SKAction.wait(forDuration: 1)
         var timesecond = 20
         timerLabel.position = CGPoint(x: size.width / 4, y: size.height - 65)
-        timerLabel.fontColor = UIColor.black
         self.timerLabel.text = "Time Left: \(timesecond)"
+        self.timerLabel.color = UIColor.white
         addChild(timerLabel)
         let actionrun = SKAction.run({
             timesecond = timesecond - 1
@@ -89,29 +89,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setupScore() {
         scoreLabel.text = "Score: \(currentScore)"
         scoreLabel.position = CGPoint(x: size.width / 2, y: size.height - 65)
-        scoreLabel.fontColor = UIColor.black
+        scoreLabel.fontColor = UIColor.white
         addChild(scoreLabel)
     }
     
     func setupPlayer() {
-        let f0 = SKTexture.init(imageNamed: "plane1")
-        let f1 = SKTexture.init(imageNamed: "plane2")
-        let f2 = SKTexture.init(imageNamed: "plane3")
-        let f3 = SKTexture.init(imageNamed: "plane4")
-        let f4 = SKTexture.init(imageNamed: "plane5")
-        let f5 = SKTexture.init(imageNamed: "plane6")
-        let f6 = SKTexture.init(imageNamed: "plane7")
-        let f7 = SKTexture.init(imageNamed: "plane8")
-        let f8 = SKTexture.init(imageNamed: "plane9")
-        let f9 = SKTexture.init(imageNamed: "plane10")
-        let f10 = SKTexture.init(imageNamed: "plane11")
-        let f11 = SKTexture.init(imageNamed: "plane12")
-        let f12 = SKTexture.init(imageNamed: "plane13")
-        let f13 = SKTexture.init(imageNamed: "plane14")
-        let f14 = SKTexture.init(imageNamed: "plane15")
-        let frames: [SKTexture] = [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14]
+        let f0 = SKTexture.init(imageNamed: "phoenix1")
+        let f1 = SKTexture.init(imageNamed: "phoenix2")
+        let f2 = SKTexture.init(imageNamed: "phoenix3")
+        let f3 = SKTexture.init(imageNamed: "phoenix4")
+        let f4 = SKTexture.init(imageNamed: "phoenix5")
+        let f5 = SKTexture.init(imageNamed: "phoenix6")
+        
+        let frames: [SKTexture] = [f0, f1, f2, f3, f4, f5]
         player.position = CGPoint(x: size.width * 0.2, y: size.height * 0.5)
-        let animation = SKAction.animate(with: frames, timePerFrame: 0.05)
+        player.size = CGSize(width: size.width / 10, height: size.height / 8)
+        let animation = SKAction.animate(with: frames, timePerFrame: 0.1)
         player.run(SKAction.repeatForever(animation))
         addChild(player)
         //physics body of player
@@ -148,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        let animation = SKAction.animate(with: frames, timePerFrame: 0.04)
 //        background.run(SKAction.repeatForever(animation))
 //        addChild(background)
-        let back = SKSpriteNode(imageNamed: "DesertBackground")
+        let back = SKSpriteNode(imageNamed: "nighttown")
         back.position = CGPoint(x: size.width/2, y: size.height / 2)
         back.size = CGSize(width: size.width, height: size.height)
         addChild(back)
@@ -156,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMove = SKAction.move(to: CGPoint(x: -back.size.width/2, y:size.height/2), duration: 2)
         let actionMoveDone = SKAction.removeFromParent()
         
-        let back2 = SKSpriteNode(imageNamed: "DesertBackground")
+        let back2 = SKSpriteNode(imageNamed: "nighttown")
         back2.position = CGPoint(x: size.width + (size.width / 2), y: size.height / 2)
         back2.size = CGSize(width: size.width, height: size.height)
         addChild(back2)
@@ -168,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupCoins() {
-        let coin = SKSpriteNode(imageNamed: "coin")
+        let coin = SKSpriteNode(imageNamed: "egg")
         let actualY = random(min: coin.size.height/2, max: size.height - coin.size.height/2)
         coin.position = CGPoint(x: size.width + coin.size.width/2, y: actualY)
         coin.size = CGSize(width: 50, height: 50)
@@ -179,7 +172,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         coin.run(SKAction.sequence([actionMove, actionMoveDone]))
         //physics for coin
-        coin.physicsBody = SKPhysicsBody(rectangleOf: coin.size)
+        coin.physicsBody = SKPhysicsBody(circleOfRadius: max(coin.size.width / 2, coin.size.height / 2))
         coin.physicsBody?.isDynamic = true
         coin.physicsBody?.categoryBitMask = coinCategory
         coin.physicsBody?.collisionBitMask = playerCategory
@@ -196,22 +189,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupEnemy() {
-        let enemy = SKSpriteNode(imageNamed: "bird1")
-        let f0 = SKTexture.init(imageNamed: "bird1")
-        let f1 = SKTexture.init(imageNamed: "bird2")
-        let f2 = SKTexture.init(imageNamed: "bird3")
-        let f3 = SKTexture.init(imageNamed: "bird4")
-        let f4 = SKTexture.init(imageNamed: "bird5")
-        let f5 = SKTexture.init(imageNamed: "bird6")
-        let f6 = SKTexture.init(imageNamed: "bird7")
-        let f7 = SKTexture.init(imageNamed: "bird8")
-        let f8 = SKTexture.init(imageNamed: "bird9")
-        let f9 = SKTexture.init(imageNamed: "bird10")
-        let frames: [SKTexture] = [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9]
+        let enemy = SKSpriteNode(imageNamed: "bat1")
+        let f0 = SKTexture.init(imageNamed: "garg1")
+        let f1 = SKTexture.init(imageNamed: "garg2")
+        let f2 = SKTexture.init(imageNamed: "garg3")
+        let f3 = SKTexture.init(imageNamed: "garg4")
+        let frames: [SKTexture] = [f0, f1, f2, f3]
         let actualY = random(min: enemy.size.height/2, max: size.height - enemy.size.height/2)
         enemy.position = CGPoint(x: size.width + enemy.size.width/2, y: actualY)
-        enemy.size = CGSize(width: size.width / 6, height: size.height / 4)
-        let animation = SKAction.animate(with: frames, timePerFrame: 0.04)
+        enemy.size = CGSize(width: enemy.size.width * 4, height: enemy.size.height * 7)
+        let animation = SKAction.animate(with: frames, timePerFrame: 0.17)
         enemy.run(SKAction.repeatForever(animation))
         addChild(enemy)
         let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
@@ -220,7 +207,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         enemy.run(SKAction.sequence([actionMove, actionMoveDone]))
         //physics body of enemy
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
+        enemy.physicsBody = SKPhysicsBody(circleOfRadius: max(enemy.size.width / 2, enemy.size.height / 2))
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.categoryBitMask = enemyCategory
         enemy.physicsBody?.collisionBitMask = playerCategory
