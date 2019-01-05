@@ -45,7 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(setupEnemy),
-                SKAction.wait(forDuration: 1.0)
+                SKAction.wait(forDuration: 0.5)
                 ])
         ))
         
