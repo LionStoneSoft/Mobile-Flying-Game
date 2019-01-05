@@ -30,10 +30,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) { //similar to viewDidLoad
         physicsWorld.contactDelegate = self
         self.addChild(gameplayMusic)
-        setupBackground()
+        
+        run(SKAction.repeatForever(
+            SKAction.sequence([
+                SKAction.run(setupBackground),
+                SKAction.wait(forDuration: 2.0)
+                ])
+        ))
+        
         setupScore()
         setupPlayer()
         timer()
+        
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(setupEnemy),
@@ -47,6 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 SKAction.wait(forDuration: 1.0)
                 ])
         ))
+        
         
         
     }
@@ -114,31 +123,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupBackground() {
-        let f0 = SKTexture.init(imageNamed: "road1")
-        let f1 = SKTexture.init(imageNamed: "road2")
-        let f2 = SKTexture.init(imageNamed: "road3")
-        let f3 = SKTexture.init(imageNamed: "road4")
-        let f4 = SKTexture.init(imageNamed: "road5")
-        let f5 = SKTexture.init(imageNamed: "road6")
-        let f6 = SKTexture.init(imageNamed: "road7")
-        let f7 = SKTexture.init(imageNamed: "road8")
-        let f8 = SKTexture.init(imageNamed: "road9")
-        let f9 = SKTexture.init(imageNamed: "road10")
-        let f10 = SKTexture.init(imageNamed: "road11")
-        let f11 = SKTexture.init(imageNamed: "road12")
-        let f12 = SKTexture.init(imageNamed: "road13")
-        let f13 = SKTexture.init(imageNamed: "road14")
-        let f14 = SKTexture.init(imageNamed: "road15")
-        let f15 = SKTexture.init(imageNamed: "road16")
-        let f16 = SKTexture.init(imageNamed: "road17")
-        let f17 = SKTexture.init(imageNamed: "road18")
-        let f18 = SKTexture.init(imageNamed: "road19")
-        let frames: [SKTexture] = [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18]
-        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        background.size = CGSize(width: size.width, height: size.height)
-        let animation = SKAction.animate(with: frames, timePerFrame: 0.04)
-        background.run(SKAction.repeatForever(animation))
-        addChild(background)
+//        let f0 = SKTexture.init(imageNamed: "road1")
+//        let f1 = SKTexture.init(imageNamed: "road2")
+//        let f2 = SKTexture.init(imageNamed: "road3")
+//        let f3 = SKTexture.init(imageNamed: "road4")
+//        let f4 = SKTexture.init(imageNamed: "road5")
+//        let f5 = SKTexture.init(imageNamed: "road6")
+//        let f6 = SKTexture.init(imageNamed: "road7")
+//        let f7 = SKTexture.init(imageNamed: "road8")
+//        let f8 = SKTexture.init(imageNamed: "road9")
+//        let f9 = SKTexture.init(imageNamed: "road10")
+//        let f10 = SKTexture.init(imageNamed: "road11")
+//        let f11 = SKTexture.init(imageNamed: "road12")
+//        let f12 = SKTexture.init(imageNamed: "road13")
+//        let f13 = SKTexture.init(imageNamed: "road14")
+//        let f14 = SKTexture.init(imageNamed: "road15")
+//        let f15 = SKTexture.init(imageNamed: "road16")
+//        let f16 = SKTexture.init(imageNamed: "road17")
+//        let f17 = SKTexture.init(imageNamed: "road18")
+//        let f18 = SKTexture.init(imageNamed: "road19")
+//        let frames: [SKTexture] = [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18]
+//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+//        background.size = CGSize(width: size.width, height: size.height)
+//        let animation = SKAction.animate(with: frames, timePerFrame: 0.04)
+//        background.run(SKAction.repeatForever(animation))
+//        addChild(background)
+        let back = SKSpriteNode(imageNamed: "DesertBackground")
+        back.position = CGPoint(x: size.width/2, y: size.height / 2)
+        back.size = CGSize(width: size.width, height: size.height)
+        addChild(back)
+        back.zPosition = -100
+        let actionMove = SKAction.move(to: CGPoint(x: -back.size.width/2, y:size.height/2), duration: 2)
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        let back2 = SKSpriteNode(imageNamed: "DesertBackground")
+        back2.position = CGPoint(x: size.width + (size.width / 2), y: size.height / 2)
+        back2.size = CGSize(width: size.width, height: size.height)
+        addChild(back2)
+        back2.zPosition = -100
+        let actionmove2 = SKAction.move(to: CGPoint(x: back2.size.width / 2, y:size.height/2), duration: 2)
+        back.run(SKAction.sequence([actionMove, actionMoveDone]))
+        back2.run(SKAction.sequence([actionmove2, actionMoveDone]))
+        
     }
     
     func setupCoins() {
