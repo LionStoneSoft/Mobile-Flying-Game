@@ -10,18 +10,18 @@ import SpriteKit
 
 class StartScene: SKScene {
     
-    var gameScene:SKScene!
-    let backgroundSound = SKAudioNode(fileNamed: "menuMusic.wav")
     let pressPlaySound = SKAction.playSoundFileNamed("startButtonNoise", waitForCompletion: false)
     let spark = SKSpriteNode(imageNamed: "tmp-0")
     let touchScreen = SKSpriteNode()
+    let backgroundSound = SKAudioNode(fileNamed: "menuMusic.wav")
+    var gameScene:SKScene!
     
     override func didMove(to view: SKView) {
-        self.addChild(backgroundSound)
         sparkBackground()
         setupTitle()
         setupText()
         setupTouchScreen()
+        self.addChild(backgroundSound)
     }
     
     func setupText() {

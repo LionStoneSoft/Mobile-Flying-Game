@@ -104,12 +104,12 @@
 		94BF20B921DFC1C900696638 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				94BF20BF21DFC1D600696638 /* menuMusic.wav */,
 				94BF20BC21DFC1D600696638 /* coinNoise.wav */,
 				94BF20BD21DFC1D600696638 /* crowSound.wav */,
 				94BF20BA21DFC1D600696638 /* gameOverMusic.wav */,
 				94BF20C621E0DFDD00696638 /* startButtonNoise.wav */,
 				94BF20BE21DFC1D600696638 /* gameplayMusic.wav */,
-				94BF20BF21DFC1D600696638 /* menuMusic.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -222,6 +222,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -283,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

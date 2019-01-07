@@ -12,8 +12,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let player = SKSpriteNode(imageNamed: "plane1")
-    let background = SKSpriteNode(imageNamed: "road1")
+    let player = SKSpriteNode(imageNamed: "phoenix1")
     let playerCategory: UInt32 = 0x00000001 << 0
     let enemyCategory: UInt32 = 0x00000001 << 1
     let coinCategory: UInt32 = 0x00000001 << 2
